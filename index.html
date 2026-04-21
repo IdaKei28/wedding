@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Wedding</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #8b7355;
+      --secondary: #d4c4b0;
+      --accent: #c9a86c;
+      --text: #4a4a4a;
+      --light: #faf8f5;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.8;
+      background: var(--light);
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920') center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      letter-spacing: 4px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      letter-spacing: 8px;
+    }
+
+    .hero-date {
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 5rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--primary);
+      margin-bottom: 3rem;
+      letter-spacing: 4px;
+    }
+
+    /* Message */
+    .message {
+      text-align: center;
+    }
+
+    .message p {
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    /* Details */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .detail-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    .detail-card h3 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .detail-card p {
+      font-size: 0.95rem;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 4px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.02);
+    }
+
+    /* RSVP */
+    .rsvp {
+      background: var(--white);
+      padding: 3rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .rsvp-button {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background: var(--primary);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 1.5rem;
+      transition: background 0.3s ease;
+    }
+
+    .rsvp-button:hover {
+      background: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+      }
+
+      section {
+        padding: 3rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero -->
+  <header class="hero">
+    <p class="hero-subtitle">Our Wedding</p>
+    <h1 class="hero-title">名前 ＆ 名前</h1>
+    <p class="hero-date">2026年 10月 10日</p>
+  </header>
+
+  <!-- Message -->
+  <section class="message">
+    <h2 class="section-title">ご挨拶</h2>
+    <p>
+      このたび、私たちは結婚することとなりました。<br>
+      これまで支えていただいた皆様方的感謝申し上げます。<br>
+      新しい門出を皆様と一緒に迎えられることを、心より嬉しく思います。<br>
+      ぜひご出席いただき、温かいご祝福を賜りますようお願い申し上げます。
+    </p>
+  </section>
+
+  <!-- Details -->
+  <section class="details">
+    <h2 class="section-title">披露宴のご案内</h2>
+    <div class="details-grid">
+      <div class="detail-card">
+        <h3>日時</h3>
+        <p>2026年10月10日（土）<br>11:00〜</p>
+      </div>
+      <div class="detail-card">
+        <h3>場所</h3>
+        <p>○○ホテル<br>東京都○○区○○1-2-3</p>
+      </div>
+      <div class="detail-card">
+        <h3>着装</h3>
+        <p>フォーマル<br>お祝いの服装でお越しください</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery">
+    <h2 class="section-title">写真ギャラリー</h2>
+    <div class="gallery-grid">
+      <img src="https://images.unsplash.com/photo-1511285560982-1356c11d4606?w=400" alt=" Wedding Photo 1">
+      <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=400" alt="Wedding Photo 2">
+      <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=400" alt="Wedding Photo 3">
+      <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=400" alt="Wedding Photo 4">
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="rsvp">
+    <h2 class="section-title">出欠のご連絡</h2>
+    <p>ご出席いただける方は、<br>9月10日までにご連絡ください。</p>
+    <a href="mailto:example@email.com" class="rsvp-button">メールを送る</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>名前 ＆ 名前</p>
+  </footer>
+</body>
+</html>
