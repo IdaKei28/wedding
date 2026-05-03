@@ -14,5 +14,5 @@ setInterval(() => {
     
     // フェードイン
     heroElement.style.opacity = '1';
-  }, 500);
+  }, 1000);
 }, 5000);

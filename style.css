@@ -162,7 +162,7 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
   .hero {
-    background-size: 100% auto;
+    background-size: cover;
     background-attachment: scroll;
   }
 
