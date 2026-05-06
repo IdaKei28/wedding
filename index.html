@@ -309,7 +309,7 @@
     <p class="msg-intro">おふたりからゲストの皆さまへ、<br>一人ひとりへのメッセージをご用意しました。<br>お名前を入力してご覧ください。</p>
 
     <div class="msg-search-box">
-      <div class="msg-search-label">お名前を入力してください(漢字フルネームで入力してください)</div>
+      <div class="msg-search-label">お名前を入力してください（スペースなし・漢字フルネーム）</div>
       <div class="msg-input-row">
         <input class="msg-input" id="msgInput" type="text" placeholder="例）田中太郎" maxlength="30" inputmode="text" autocomplete="off">
         <button class="msg-search-btn" onclick="searchMessage()">表示</button>
@@ -357,6 +357,7 @@
 
 
 <script src="messages.js"></script><!-- ゲストメッセージデータ -->
+<script src="quiz.js"></script><!-- 謎解きクイズ -->
 <script src="script.js"></script><!-- タブ・検索ロジック -->
 </body>
 </html>
