@@ -259,7 +259,7 @@ body::before {
 .profile-panel.active { display: block; animation: fadeUp 0.3s ease both; }
 
 .profile-avatar-wrap {
-  width: 130px; height: 130px;
+  width: 180px; height: 180px;
   margin: 0 auto 18px;
   position: relative;
 }
@@ -276,7 +276,7 @@ body::before {
   border-radius: 50%;
 }
 .profile-avatar {
-  width: 130px; height: 130px;
+  width: 180px; height: 180px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--gold-light), var(--gold-mid));
   display: flex; align-items: center; justify-content: center;
@@ -398,6 +398,31 @@ body::before {
 .music-info { flex: 1; min-width: 0; }
 .music-scene { font-size: 10px; color: var(--gold); letter-spacing: 0.15em; margin-bottom: 6px; text-transform: uppercase; }
 .music-song { font-family: 'Noto Serif JP', serif; font-size: 13px; font-weight: 400; margin-bottom: 3px; }
+
+.music-playlist-links { margin-top: 24px; }
+.music-playlist-label {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px; letter-spacing: 0.15em;
+  color: var(--gray); text-align: center;
+  margin-bottom: 12px;
+}
+.music-playlist-btn {
+  display: flex; align-items: center; gap: 12px;
+  border: 1.5px solid var(--pl-color, var(--border));
+  border-radius: 10px; padding: 14px 16px;
+  text-decoration: none; color: var(--brown);
+  margin-bottom: 10px;
+  transition: background 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.music-playlist-btn:active { background: var(--gold-light); }
+.music-playlist-icon { font-size: 22px; flex-shrink: 0; }
+.music-playlist-name {
+  flex: 1;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px; font-weight: 500; letter-spacing: 0.08em;
+}
+.music-playlist-arrow { font-size: 18px; color: var(--border); flex-shrink: 0; }
 
 /* =========================================
    §5 写真集
@@ -536,7 +561,7 @@ body::before {
   border: 1px solid var(--border); border-radius: 8px;
   font-family: 'Noto Sans JP', sans-serif; font-size: 14px;
   background: var(--washi); color: var(--brown); outline: none;
-  transition: border-color 0.2s; -webkit-appearance: none;
+  transition: border-color 0.2s; -webkit-appearance: none; appearance: none;
   min-width: 0;
 }
 .msg-input:focus { border-color: var(--gold); }

@@ -26,6 +26,17 @@ const LOCKED_TABS = ['links'];
        ]
      },
    ======================================================= */
+/* =====================================================
+   プレイリストリンク
+   =======================================================
+   ▼▼▼ Apple Music・Spotify の URL をここに入力 ▼▼▼
+   不要なサービスは url を "#" のままにしてください
+   ======================================================= */
+const PLAYLIST_LINKS = [
+  { service: 'Apple Music', icon: '🎵', color: '#fc3c44', url: '#' },
+  { service: 'Spotify',     icon: '🎧', color: '#1db954', url: '#' },
+];
+
 const PLAYLIST = [
   { scene: "入場",         icon: "🎵", songs: [
     { title: "曲名を入力してください", artist: "アーティスト名" },
@@ -39,11 +50,11 @@ const PLAYLIST = [
     { title: "曲名を入力してください", artist: "アーティスト名" },
     { title: "曲名を入力してください", artist: "アーティスト名" },
   ]},
-  { scene: "インタビュー", icon: "🕯️", songs: [
+  { scene: "インタビュー", icon: "🎤", songs: [
     { title: "曲名を入力してください", artist: "アーティスト名" },
     { title: "曲名を入力してください", artist: "アーティスト名" },
   ]},
-  { scene: "結婚証明書",   icon: "💌", songs: [
+  { scene: "結婚証明書",   icon: "💍", songs: [
     { title: "曲名を入力してください", artist: "アーティスト名" },
     { title: "曲名を入力してください", artist: "アーティスト名" },
     { title: "曲名を入力してください", artist: "アーティスト名" },
@@ -59,7 +70,8 @@ const PLAYLIST = [
 function renderPlaylist() {
   const container = document.getElementById('musicList');
   if (!container) return;
-  container.innerHTML = PLAYLIST.map(scene => `
+
+  const cards = PLAYLIST.map(scene => `
     <div class="music-card">
       <div class="music-jacket">${scene.icon}</div>
       <div class="music-info">
@@ -70,6 +82,23 @@ function renderPlaylist() {
       </div>
     </div>
   `).join('');
+
+  const activeLinks = PLAYLIST_LINKS.filter(l => l.url && l.url !== '#');
+  const linkBlock = activeLinks.length ? `
+    <div class="music-playlist-links">
+      <div class="music-playlist-label">プレイリストを聴く</div>
+      ${activeLinks.map(l => `
+        <a class="music-playlist-btn" href="${l.url}" target="_blank" rel="noopener"
+           style="--pl-color:${l.color}">
+          <span class="music-playlist-icon">${l.icon}</span>
+          <span class="music-playlist-name">${l.service}</span>
+          <span class="music-playlist-arrow">›</span>
+        </a>
+      `).join('')}
+    </div>
+  ` : '';
+
+  container.innerHTML = cards + linkBlock;
 }
 
 /* -----------------------------------------------------
