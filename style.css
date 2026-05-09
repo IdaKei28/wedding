@@ -241,9 +241,9 @@ body::before {
   margin-bottom: 22px;
 }
 .ptoggle-btn {
-  flex: 1; padding: 12px 8px;
+  flex: 1; padding: 12px 4px;
   font-family: 'Noto Serif JP', serif;
-  font-size: 14px; letter-spacing: 0.1em;
+  font-size: 13px; letter-spacing: 0.06em;
   border: none; background: none;
   cursor: pointer; color: var(--gray);
   transition: all 0.25s;
@@ -257,6 +257,49 @@ body::before {
 
 .profile-panel { display: none; }
 .profile-panel.active { display: block; animation: fadeUp 0.3s ease both; }
+
+/* 2人パネル：写真 */
+.couple-photo-wrap {
+  width: 100%; border-radius: 10px; overflow: hidden;
+  margin-bottom: 16px; aspect-ratio: 3/2;
+}
+.couple-photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* 2人のあゆみ タイムライン */
+.couple-timeline {
+  margin-top: 18px; padding: 16px;
+  background: var(--white); border: 1px solid var(--border); border-radius: 8px;
+}
+.couple-timeline-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 12px; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 14px;
+}
+.ct-item {
+  display: grid; grid-template-columns: 72px 20px 1fr;
+  align-items: flex-start; gap: 0 8px; position: relative;
+  padding-bottom: 14px;
+}
+.ct-item:last-child { padding-bottom: 0; }
+.ct-item::before {
+  content: '';
+  position: absolute; left: 79px; top: 10px; bottom: -4px;
+  width: 2px; background: var(--gold-light);
+}
+.ct-item:last-child::before { display: none; }
+.ct-date {
+  font-size: 11px; color: var(--gray); text-align: right;
+  padding-top: 1px; line-height: 1.4;
+}
+.ct-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--gold-light); border: 2px solid var(--gold);
+  margin-top: 2px; flex-shrink: 0;
+}
+.ct-dot--today { background: var(--gold); }
+.ct-body {
+  font-family: 'Noto Serif JP', serif; font-size: 13px;
+  color: var(--brown); line-height: 1.6;
+}
 
 .profile-avatar-wrap {
   width: 180px; height: 180px;
@@ -311,6 +354,35 @@ body::before {
   font-size: 30px; color: var(--gold-light); line-height: 1;
 }
 .message-quote p { font-size: 13px; line-height: 2; color: var(--brown); padding-top: 4px; }
+
+.artist-ranking {
+  margin-top: 18px;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 14px 16px;
+}
+.artist-ranking-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 12px; letter-spacing: 0.12em; color: var(--gold);
+  margin-bottom: 10px;
+}
+.artist-ranking-list {
+  list-style: none; margin: 0; padding: 0; counter-reset: artist;
+}
+.artist-ranking-list li {
+  counter-increment: artist;
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Noto Serif JP', serif; font-size: 13px; color: var(--brown);
+  padding: 5px 0; border-bottom: 1px solid var(--gold-light);
+}
+.artist-ranking-list li:last-child { border-bottom: none; }
+.artist-ranking-list li::before {
+  content: counter(artist);
+  display: flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; flex-shrink: 0;
+  background: var(--gold); color: #fff;
+  border-radius: 50%; font-size: 11px; font-weight: 500;
+}
+.artist-ranking-list li:first-child::before { background: #b8972a; }
 
 /* =========================================
    §3 対談

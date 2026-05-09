@@ -31,7 +31,7 @@
   <section id="greeting" class="section active">
 
     <div class="hero-img-wrap">
-      <img src="photo1.jpg" alt="2人の写真">
+      <img src="Top.jpg" alt="2人の写真">
       <!-- 
       <div class="hero-placeholder">
         <span class="ph-icon">📷</span>
@@ -86,6 +86,7 @@
     <div class="profile-toggle">
       <button class="ptoggle-btn active" onclick="showProfile('groom',this)">🤵 新郎</button>
       <button class="ptoggle-btn" onclick="showProfile('bride',this)">👰 新婦</button>
+      <button class="ptoggle-btn" onclick="showProfile('couple',this)">💑 2人</button>
     </div>
 
     <!-- 新郎 -->
@@ -112,6 +113,18 @@
         <!-- ▼ 新郎メッセージを編集 -->
         <p>今日この日、皆さまへ感謝の気持ちをお伝えしたいと思います。<br>
           これからも○○と二人で支え合い、笑顔あふれる家庭を築いていきたいと思います。どうぞよろしくお願いいたします。</p>
+      </div>
+
+      <!-- ▼ 新郎の好きなアーティストを編集 -->
+      <div class="artist-ranking">
+        <div class="artist-ranking-title">🎵 好きなアーティスト Best 5</div>
+        <ol class="artist-ranking-list">
+          <li>アーティスト名</li>
+          <li>アーティスト名</li>
+          <li>アーティスト名</li>
+          <li>アーティスト名</li>
+          <li>アーティスト名</li>
+        </ol>
       </div>
     </div>
 
@@ -140,6 +153,71 @@
         <p>大切な皆さまにお会いできて、とても嬉しいです。<br>
           ○○と出会えたこと、そして今日この日を迎えられたことに、心から感謝しています。これからもどうぞよろしくお願いいたします。</p>
       </div>
+
+      <!-- ▼ 新婦の好きなアーティストを編集 -->
+      <div class="artist-ranking">
+        <div class="artist-ranking-title">🎵 好きなアーティスト Best 5</div>
+        <ol class="artist-ranking-list">
+          <li>アーティスト名</li>
+          <li>アーティスト名</li>
+          <li>アーティスト名</li>
+          <li>アーティスト名</li>
+          <li>アーティスト名</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- 2人 -->
+    <div id="prof-couple" class="profile-panel">
+
+      <div class="couple-photo-wrap">
+        <img src="photo1.jpg" alt="2人の写真"><!-- ▼ 写真を差し替える場合はここを変更 -->
+      </div>
+
+      <div class="profile-name" style="text-align:center">啓介 &amp; 佑衣</div>
+      <div class="profile-role" style="text-align:center">Our Story</div>
+
+      <!-- ▼ 2人のあゆみ（日付とエピソードを編集） -->
+      <div class="couple-timeline">
+        <div class="couple-timeline-title">2人のあゆみ</div>
+
+        <div class="ct-item">
+          <div class="ct-date">○○年○月</div>
+          <div class="ct-dot"></div>
+          <div class="ct-body">出会い</div>
+        </div>
+        <div class="ct-item">
+          <div class="ct-date">○○年○月</div>
+          <div class="ct-dot"></div>
+          <div class="ct-body">交際開始</div>
+        </div>
+        <div class="ct-item">
+          <div class="ct-date">○○年○月</div>
+          <div class="ct-dot"></div>
+          <div class="ct-body">プロポーズ</div>
+        </div>
+        <div class="ct-item">
+          <div class="ct-date">2026年5月</div>
+          <div class="ct-dot ct-dot--today"></div>
+          <div class="ct-body">結婚式 🎉</div>
+        </div>
+      </div>
+
+      <!-- ▼ 2人のこと（項目・内容を自由に編集） -->
+      <table class="profile-table" style="margin-top:18px">
+        <tr><td>出会いのきっかけ</td><td>○○</td></tr>
+        <tr><td>2人の共通点</td><td>○○、○○</td></tr>
+        <tr><td>2人のお気に入りの場所</td><td>○○</td></tr>
+        <tr><td>よく行くお店</td><td>○○</td></tr>
+        <tr><td>将来の夢</td><td>○○</td></tr>
+      </table>
+
+      <div class="message-quote" style="margin-top:18px">
+        <!-- ▼ 2人の共同メッセージを編集 -->
+        <p>今日この日、大切な皆さまにお会いできて<br>
+          本当に嬉しいです。<br>
+          これからもどうぞよろしくお願いします。</p>
+      </div>
     </div>
 
   </section>
@@ -155,14 +233,14 @@
 
     <div class="talk-q"><span>Q. 出会いはどこで？</span></div><!-- ▼ 質問を変更 -->
     <div class="talk-row">
-      <div class="talk-avt"><img src="GroomPhoto.jpg" alt="新郎"></div>
+      <div class="talk-avt"><img src="GroomFace.jpg" alt="新郎"></div>
       <div class="talk-bwrap">
         <div class="talk-person">新郎</div>
         <div class="talk-bubble">○○がきっかけで知り合いました。最初は普通の友達だったんですよ。</div><!-- ▼ 変更 -->
       </div>
     </div>
     <div class="talk-row right">
-      <div class="talk-avt"><img src="BridePhoto.jpg" alt="新婦"></div>
+      <div class="talk-avt"><img src="BrideFace.jpg" alt="新婦"></div>
       <div class="talk-bwrap">
         <div class="talk-person">新婦</div>
         <div class="talk-bubble">そうそう！あのとき○○だったよね。まさかこうなるとは思ってなかった（笑）</div><!-- ▼ 変更 -->
@@ -171,14 +249,14 @@
 
     <div class="talk-q"><span>Q. 第一印象は？</span></div>
     <div class="talk-row">
-      <div class="talk-avt"><img src="GroomPhoto.jpg" alt="新郎"></div>
+      <div class="talk-avt"><img src="GroomFace.jpg" alt="新郎"></div>
       <div class="talk-bwrap">
         <div class="talk-person">新郎</div>
         <div class="talk-bubble">明るくてよく笑う人だなと思いました。話しやすそうで、すぐ仲良くなれそうだった。</div>
       </div>
     </div>
     <div class="talk-row right">
-      <div class="talk-avt"><img src="BridePhoto.jpg" alt="新婦"></div>
+      <div class="talk-avt"><img src="BrideFace.jpg" alt="新婦"></div>
       <div class="talk-bwrap">
         <div class="talk-person">新婦</div>
         <div class="talk-bubble">私は最初ちょっと怖そうだと思ってたんだけど（笑）、話してみたら全然そんなことなかった！</div>
@@ -187,14 +265,14 @@
 
     <div class="talk-q"><span>Q. プロポーズのエピソードは？</span></div>
     <div class="talk-row">
-      <div class="talk-avt"><img src="GroomPhoto.jpg" alt="新郎"></div>
+      <div class="talk-avt"><img src="GroomFace.jpg" alt="新郎"></div>
       <div class="talk-bwrap">
         <div class="talk-person">新郎</div>
         <div class="talk-bubble">○○で、夕日をバックに「一生そばにいさせてください」と伝えました。</div>
       </div>
     </div>
     <div class="talk-row right">
-      <div class="talk-avt"><img src="BridePhoto.jpg" alt="新婦"></div>
+      <div class="talk-avt"><img src="BrideFace.jpg" alt="新婦"></div>
       <div class="talk-bwrap">
         <div class="talk-person">新婦</div>
         <div class="talk-bubble">サプライズで本当にびっくりしたし、うれしくて泣いちゃいました…♡</div>
@@ -203,14 +281,14 @@
 
     <div class="talk-q"><span>Q. 結婚後の夢・目標は？</span></div>
     <div class="talk-row">
-      <div class="talk-avt"><img src="GroomPhoto.jpg" alt="新郎"></div>
+      <div class="talk-avt"><img src="GroomFace.jpg" alt="新郎"></div>
       <div class="talk-bwrap">
         <div class="talk-person">新郎</div>
         <div class="talk-bubble">家族みんなで旅行できるような、笑顔の絶えない家庭にしたいです。</div>
       </div>
     </div>
     <div class="talk-row right">
-      <div class="talk-avt"><img src="BridePhoto.jpg" alt="新婦"></div>
+      <div class="talk-avt"><img src="BrideFace.jpg" alt="新婦"></div>
       <div class="talk-bwrap">
         <div class="talk-person">新婦</div>
         <div class="talk-bubble">一緒においしいものを食べて、たくさん笑って過ごしたいな。小さくても幸せな毎日を大切にしたい。</div>
@@ -255,7 +333,7 @@
     <!-- ▼ href="#" を Wedding Share の URL に変更 -->
     <a class="ws-link-btn" href="https://www.weddingshare.me/weddings/blbgjxzjj7fgkbtv/B5WnupeJwWr06sy6Qn5kcyVfIrOPmYIi?openExternalBrowser=1&type=link" target="_blank" rel="noopener">
       <span class="ws-link-icon">📸</span>
-      <span class="ws-link-text">写真共有はこちらから</span>
+      <span class="ws-link-text">写真共有(Wedding Share)はこちらから</span>
       <span class="ws-link-arrow">›</span>
     </a>
 
@@ -267,32 +345,40 @@
     <div class="ws-step">
       <div class="ws-step-num">1</div>
       <div class="ws-step-body">
-        <div class="ws-step-title">アプリをダウンロード</div>
-        <div class="ws-step-desc">App Store または Google Play で「Wedding Share」と検索し、アプリをインストールしてください。</div>
+        <div class="ws-step-title">Wedding Share へアクセスする</div>
+        <div class="ws-step-desc">上記のリンクから Wedding Share にアクセスしてください。</div>
       </div>
     </div>
 
     <div class="ws-step">
       <div class="ws-step-num">2</div>
       <div class="ws-step-body">
-        <div class="ws-step-title">アルバムに参加</div>
-        <div class="ws-step-desc">上のボタンからリンクを開くか、招待コードを入力して本日のアルバムに参加してください。</div>
+        <div class="ws-step-title">コミュニティを選択</div>
+        <div class="ws-step-desc">リンク先で各コミュニティに参加してください</div>
       </div>
     </div>
 
     <div class="ws-step">
       <div class="ws-step-num">3</div>
       <div class="ws-step-body">
-        <div class="ws-step-title">写真を投稿・閲覧</div>
-        <div class="ws-step-desc">撮影した写真をアップロードすると、ゲスト全員と共有されます。他の方の写真も自由にご覧いただけます。</div>
+        <div class="ws-step-title">写真・動画を投稿</div>
+        <div class="ws-step-desc">撮影した写真・動画をアップロードする際、コミュニティ限定にするかみんなでシェアするか選択ができます。任意の方を選んで写真を共有してください。コミュニティ限定にするとそのコミュニティの人しか見ることができません。後から変更も可能です。</div>
       </div>
     </div>
 
     <div class="ws-step">
       <div class="ws-step-num">4</div>
       <div class="ws-step-body">
-        <div class="ws-step-title">写真をダウンロード</div>
-        <div class="ws-step-desc">お気に入りの写真は保存してお持ち帰りください。式後もアルバムはしばらく閲覧できます。</div>
+        <div class="ws-step-title">写真にいいね/ダウンロード</div>
+        <div class="ws-step-desc">お気に入りの写真をいいね、ダウンロードできます。式後もアルバムはしばらく閲覧できます。</div>
+      </div>
+    </div>
+    
+    <div class="ws-step">
+      <div class="ws-step-num">5</div>
+      <div class="ws-step-body">
+        <div class="ws-step-title">最後に</div>
+        <div class="ws-step-desc">式の写真、動画もどんどん追加してくれると嬉しいです！また式関係ない写真もありです！</div>
       </div>
     </div>
 
