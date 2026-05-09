@@ -1,4 +1,19 @@
 /* =========================================
+   スプラッシュスクリーン
+   ========================================= */
+#splash {
+  position: fixed; inset: 0; z-index: 9999;
+  background: #000;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 2s ease;
+}
+#splash img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+#splash.fade-out { opacity: 0; }
+#splash.hidden { display: none; }
+
+/* =========================================
    CSS カスタムプロパティ（和モダン・白×緑）
    ========================================= */
 :root {

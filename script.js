@@ -233,6 +233,16 @@ function searchMessage() {
   }
 }
 
+/* スプラッシュスクリーン：4秒表示 → 2秒でフェードアウト */
+(function () {
+  const splash = document.getElementById('splash');
+  if (!splash) return;
+  setTimeout(() => {
+    splash.classList.add('fade-out');
+    splash.addEventListener('transitionend', () => splash.classList.add('hidden'), { once: true });
+  }, 4000);
+})();
+
 /* Enter キーで検索 */
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('msgInput').addEventListener('keydown', e => {
