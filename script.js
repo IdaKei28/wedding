@@ -38,7 +38,7 @@ const PLAYLIST_LINKS = [
 ];
 
 const PLAYLIST = [
-  { scene: "オープニング/入場",  icon: "🎵", reason: "ここに理由を書いてください", songs: [
+  { scene: "オープニング/入場",  icon: "🎵", reason: "あ", songs: [
     { title: "晴る", artist: "ヨルシカ" },
   ]},
   { scene: "ウェルカムスピーチ", icon: "🎤", reason: "ここに理由を書いてください", songs: [

@@ -15,7 +15,7 @@
 #splash.fade-in { opacity: 1; }
 #splash img {
   position: absolute; inset: 0;
-  width: 100%; height: 100%; object-fit: cover;
+  width: 100%; height: 100%; object-fit: contain;
   display: block;
 }
 #splash.fade-out { opacity: 0; }
@@ -305,7 +305,7 @@ body::before {
 .ct-item:last-child { padding-bottom: 0; }
 .ct-item::before {
   content: '';
-  position: absolute; left: 79px; top: 10px; bottom: -4px;
+  position: absolute; left: 89px; top: 8px; bottom: -4px;
   width: 2px; background: var(--gold-light);
 }
 .ct-item:last-child::before { display: none; }
@@ -366,6 +366,7 @@ body::before {
 .profile-table tr { border-bottom: 1px solid var(--border); }
 .profile-table td { padding: 11px 6px; font-size: 13px; line-height: 1.7; vertical-align: top; }
 .profile-table td:first-child { width: 28%; color: var(--gray); letter-spacing: 0.05em; padding-top: 13px; }
+.profile-link { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
 
 .message-quote {
   background: var(--white); border: 1px solid var(--border);
