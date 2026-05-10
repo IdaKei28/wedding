@@ -38,19 +38,19 @@ const PLAYLIST_LINKS = [
 ];
 
 const PLAYLIST = [
-  { scene: "オープニング/入場",  icon: "🎵", reason: "あ", songs: [
+  { scene: "オープニング/入場",  icon: "🎵", reason: "ヨルシカでもかなり好きな曲！葬送のフリーレンも良い！ \nby 啓介", songs: [
     { title: "晴る", artist: "ヨルシカ" },
   ]},
-  { scene: "ウェルカムスピーチ", icon: "🎤", reason: "ここに理由を書いてください", songs: [
+  { scene: "ウェルカムスピーチ", icon: "🎤", reason: "2025夏を象徴する思い出の曲。2025年の再生回数1位の曲でした！笑（一曲リピートしすぎ）\nby 佑衣", songs: [
     { title: "きときと -四本足の踊り", artist: "高木正勝" },
   ]},
-  { scene: "乾杯",               icon: "🥂", reason: "ここに理由を書いてください", songs: [
+  { scene: "乾杯",               icon: "🥂", reason: "小学生のとき、毎朝歌ってた（確か）8月のテーマソング。ワンピース見たことないけど、この曲だけは知ってる… \nby 佑衣", songs: [
     { title: "ココロの地図", artist: "BoyStyle" },
   ]},
-  { scene: "プロフィールムービー", icon: "ℹ️", reason: "ここに理由を書いてください", songs: [
+  { scene: "プロフィールムービー", icon: "ℹ️", reason: "メジャーの主題歌。青春の曲！大学でもコピーバンドをしました！ \nby 啓介", songs: [
     { title: "心絵", artist: "ロードオブメジャー" },
   ]},
-  { scene: "歓談",               icon: "🎶", reason: "ここに理由を書いてください", songs: [
+  { scene: "歓談",               icon: "🎶", reason: "2人の大好き＆思い出の曲たちです。新たなお気に入りの一曲に出会えるかも…！？\nby 啓介＆佑衣", songs: [
     { title: "虹", artist: "Aqua Timez" },
     { title: "Aoi", artist: "サカナクション" },
     { title: "以心伝心", artist: "ORANGE RANGE" },
@@ -63,17 +63,17 @@ const PLAYLIST = [
     { title: "餃子", artist: "TOMOO" },
     { title: "口約束", artist: "乃木坂46" },
   ]},
-  { scene: "インタビュー",        icon: "🎤", reason: "ここに理由を書いてください", songs: [
+  { scene: "インタビュー",        icon: "🎤", reason: "私たちにとっては懐かしいあの頃の曲。でも、もっと社会人経験をつめば捉え方が変わるかも…？\nby 啓介＆佑衣", songs: [
     { title: "ヒーロー", artist: "FUNKY MONKEY BABYS" },
   ]},
-  { scene: "結婚証明書",          icon: "💍", reason: "ここに理由を書いてください", songs: [
+  { scene: "結婚証明書",          icon: "💍", reason: "悩みに悩んで選ばれた5曲。どれも前向きになれる勇気をもらえる曲達です\nby 啓介＆佑衣", songs: [
     { title: "Masterpiece", artist: "KOTORI" },
     { title: "ヒカレ", artist: "ゆず" },
     { title: "ヒカリヘ", artist: "miwa" },
     { title: "交感神経優位", artist: "乃木坂46" },
     { title: "恋文〜ラブレター〜", artist: "GreeeeN" },
   ]},
-  { scene: "退場",               icon: "🌅", reason: "ここに理由を書いてください", songs: [
+  { scene: "退場",               icon: "🌅", reason: "最後に同世代の皆さまには懐かしさ満点であろう曲たちを…。全青春が詰め込まれた曲たちです\nby 佑衣", songs: [
     { title: "感謝カンゲキ雨嵐", artist: "嵐" },
     { title: "BOY MEETS GIRL", artist: "TRF" },
     { title: "君って", artist: "西野カナ" },
