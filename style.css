@@ -497,6 +497,51 @@ body::before {
 }
 .quiz-next-btn:active { background: var(--gold-mid); }
 
+/* 問題画像 */
+.quiz-visual-img-wrap {
+  margin: 14px 0;
+  text-align: center;
+}
+.quiz-visual-img {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+/* クイズ開始前イントロカード */
+.quiz-start-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 14px; padding: 32px 20px 28px;
+  text-align: center;
+}
+.quiz-start-icon { font-size: 36px; margin-bottom: 12px; }
+.quiz-start-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px; font-weight: 500; letter-spacing: 0.15em;
+  color: var(--brown); margin-bottom: 18px;
+}
+.quiz-start-text {
+  font-size: 14px; line-height: 2; color: var(--brown);
+  margin-bottom: 28px;
+}
+.quiz-start-btn {
+  display: inline-block; padding: 14px 32px;
+  background: var(--brown); color: var(--white);
+  border: none; border-radius: 8px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px; letter-spacing: 0.1em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s;
+}
+.quiz-start-btn:active { background: var(--gold-mid); }
+
+/* 解答済みカード */
+.quiz-card--solved {
+  border-left: 3px solid var(--gold);
+  padding-left: 12px;
+}
+
 /* =========================================
    §4 Music
    ========================================= */

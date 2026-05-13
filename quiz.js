@@ -6,45 +6,58 @@
 const QUIZ = [
   {
     no: 1,
-    question: '絵文字が表す言葉の\n最初の文字を順番に並べると？',
-    visual: '🗻　🐙　🍎',
-    hint: '二人の関係を表す言葉（3文字）',
-    answer: 'ふたり',
-    explanation: '🗻ふじさん → ふ　🐙たこ → た　🍎りんご → り'
+    question: 'まずは佑衣ちゃんの行きたいところをリサーチ！\n佑衣ちゃん 旅行でいきたいところはある？\n\n「たくさんあるってこの前言ったでしょ！」\n\n（やべ…そうだっけ…）\n\n「しょうがないなあ、\nこれを解けば私の行きたい都道府県がわかるよ！」',
+    image: '謎1.jpg',
+    hint: 'イラストは「たぬき」「毛蟹」「ナイフ」「うがい」です',
+    hint2: '文章になった時、情報はどこかになかったかな',
+    answer: ['北海道', 'ほっかいどう'],
+    explanation: 'わかった！\nたぬきは「た」を抜く\n毛蟹は「け」を「に」に変える\nナイフは「ふ」がないってこと\nうがいは「う」を「い」に変えるってことか\nそうすると「にいのこなんのせいちがせいかい」となる\n僕のコナンの映画ランキングは100万ドルの五稜星だから\n正解は北海道だね！\n\n'
   },
   {
     no: 2,
-    question: 'バラバラの文字を\n正しい順番に並べよう！',
-    visual: '「え・い・え・ん」',
+    question: '北海道って言っても広いけど\n行きたいところってあるの？\n\n「さすがイダ君。\nちゃんと聞いてくれるのね！」\n\n「じゃあ次の問題！',
+    image: 'Sample.jpg',
     hint: '二人の愛が続く時間のこと（4文字）',
+    hint2: 'ヒント2（問題2）',
     answer: 'えいえん',
     explanation: 'え・い・え・ん → えいえん（永遠）'
   },
   {
     no: 3,
     question: '□に文字を入れて\n4文字の言葉を完成させよう！',
-    visual: '「し□わ□」',
+    image: 'Sample.jpg',
     hint: '□には「あ」と「せ」が入ります',
+    hint2: 'ヒント2（問題3）',
     answer: 'しあわせ',
     explanation: 'し＋あ＋わ＋せ → しあわせ（幸せ）'
   },
   {
     no: 4,
     question: '「うとがりあ」を\n逆から読むと？',
-    visual: 'う・と・が・り・あ',
+    image: '謎4.jpg',
     hint: '今日一番伝えたい気持ち（5文字）',
+    hint2: 'ヒント2（問題4）',
     answer: 'ありがとう',
     explanation: 'うとがりあ ← 逆に読む → ありがとう'
   },
   {
     no: 5,
     question: '各行の最初の文字を\n順番に読むと隠れた言葉が！',
-    visual: 'お二人の門出を祝って\nめぐり会えた奇跡に感謝します\nでも言葉では伝えきれないほど\nとびきり大切な人へ\nうれしいな、今日という日が',
+    image: 'Sample.jpg',
     hint: '各行の1文字目に注目！（5文字）',
+    hint2: 'ヒント2（問題5）',
     answer: 'おめでとう',
     explanation: 'お・め・で・と・う → おめでとう'
   }
 ];
+
+/* クイズ開始前のイントロメッセージ
+   ▼ 内容を自由に変更してください */
+const QUIZ_INTRO_MESSAGE =
+  '僕、新郎 井田啓介。\n今日は一生に一度の結婚式。\nプロポーズしてからここまで怒涛の日々\n\n' +
+  'さあ今日が終わったら何をしようか…\n\n次のビックイベントは、、、\n新婚旅行…！！\n\n' +
+  'と言っても、いきたいところはたくさんあるし…\n佑衣ちゃんの希望を聞いて計画しなきゃ！\n\n '+
+  '僕と一緒に旅行先を決めてみませんか？\n\n' 
 
 /* 全問正解後の隠しメッセージ
    ▼ 内容を自由に変更してください */
@@ -56,78 +69,103 @@ const QUIZ_CLEAR_MESSAGE =
   'これからもどうぞよろしくお願いいたします。';
 
 /* クイズの状態 */
-let quizState = { current: 0, answered: false };
+let quizState = { current: 0 };
 
-/* クイズを初期化 */
+/* クイズを初期化（イントロ画面を表示） */
 function initQuiz() {
-  quizState = { current: 0, answered: false };
-  renderQuizQuestion();
-}
-
-/* 問題を描画 */
-function renderQuizQuestion() {
+  quizState = { current: 0 };
   const container = document.getElementById('quizContainer');
   if (!container) return;
-
-  const q     = QUIZ[quizState.current];
-  const total = QUIZ.length;
-  const no    = quizState.current + 1;
-  const pct   = Math.round((quizState.current / total) * 100);
-
-  /* 問5：visual を行ごとに分割して番号付きリストで表示 */
-  let visualHtml;
-  if (q.visual.includes('\n')) {
-    const lines = q.visual.split('\n');
-    visualHtml = `<ol class="quiz-visual-lines">${
-      lines.map(l => `<li><span class="quiz-visual-first">${l[0]}</span>${l.slice(1)}</li>`).join('')
-    }</ol>`;
-  } else {
-    visualHtml = `<div class="quiz-visual-text">${q.visual}</div>`;
-  }
-
   container.innerHTML = `
+    <div class="quiz-start-card">
+      <div class="quiz-start-icon">🔍</div>
+      <div class="quiz-start-title">謎解きクイズ</div>
+      <div class="quiz-start-text">${QUIZ_INTRO_MESSAGE.replace(/\n/g, '<br>')}</div>
+      <button class="quiz-start-btn" onclick="startQuizQuestions()">クイズをはじめる →</button>
+    </div>
+  `;
+}
+
+/* クイズ問題を開始 */
+function startQuizQuestions() {
+  const container = document.getElementById('quizContainer');
+  if (!container) return;
+  container.innerHTML = '<div id="quizProgressArea"></div>';
+  updateProgress();
+  appendQuizQuestion(0);
+}
+
+/* プログレスバーとドットを更新 */
+function updateProgress() {
+  const progressEl = document.getElementById('quizProgressArea');
+  if (!progressEl) return;
+  const total = QUIZ.length;
+  const done  = quizState.current;
+  const pct   = Math.round((done / total) * 100);
+  progressEl.innerHTML = `
     <div class="quiz-progress">
       <div class="quiz-progress-bar">
         <div class="quiz-progress-fill" style="width:${pct}%"></div>
       </div>
-      <div class="quiz-progress-text">問 ${no} / ${total}</div>
+      <div class="quiz-progress-text">問 ${Math.min(done + 1, total)} / ${total}</div>
     </div>
+    <div class="quiz-dots">
+      ${QUIZ.map((_, i) => `<div class="quiz-dot ${
+        i < done ? 'done' : i === done && done < total ? 'current' : ''
+      }"></div>`).join('')}
+    </div>
+  `;
+}
 
+/* 問題カードを末尾に追加 */
+function appendQuizQuestion(index) {
+  const container = document.getElementById('quizContainer');
+  if (!container || index >= QUIZ.length) return;
+
+  const q  = QUIZ[index];
+  const no = index + 1;
+
+  const visualHtml = `<div class="quiz-visual-img-wrap"><img class="quiz-visual-img" src="${q.image}" alt="問題${no}の画像"></div>`;
+
+  const wrapper = document.createElement('div');
+  wrapper.id = `quizCard-${index}`;
+  wrapper.innerHTML = `
     <div class="quiz-card">
       <div class="quiz-no">問題 ${no}</div>
       <div class="quiz-question">${q.question.replace(/\n/g, '<br>')}</div>
       ${visualHtml}
-      <button class="quiz-hint-btn" onclick="showQuizHint(this)">💡 ヒントを見る</button>
-      <div class="quiz-hint" id="quizHint">${q.hint}</div>
-
+      <button class="quiz-hint-btn" id="quizHintBtn1-${index}" onclick="showQuizHint(this, ${index}, 1)">💡 ヒント1を見る</button>
+      <div class="quiz-hint" id="quizHint1-${index}">${q.hint}</div>
+      ${q.hint2 ? `<button class="quiz-hint-btn" id="quizHintBtn2-${index}" style="display:none" onclick="showQuizHint(this, ${index}, 2)">💡 ヒント2を見る</button>
+      <div class="quiz-hint" id="quizHint2-${index}">${q.hint2}</div>` : ''}
       <div class="quiz-input-row">
-        <input class="quiz-input" id="quizInput" type="text"
+        <input class="quiz-input" id="quizInput-${index}" type="text"
           placeholder="ひらがなで入力" maxlength="10"
           inputmode="hiragana" autocomplete="off"
-          onkeydown="if(event.key==='Enter')submitQuizAnswer()">
-        <button class="quiz-submit-btn" onclick="submitQuizAnswer()">答える</button>
+          onkeydown="if(event.key==='Enter')submitQuizAnswer(${index})">
+        <button class="quiz-submit-btn" onclick="submitQuizAnswer(${index})">答える</button>
       </div>
-
-      <div class="quiz-feedback" id="quizFeedback"></div>
-    </div>
-
-    <div class="quiz-dots">
-      ${QUIZ.map((_, i) => `<div class="quiz-dot ${
-        i < quizState.current ? 'done' : i === quizState.current ? 'current' : ''
-      }"></div>`).join('')}
+      <div class="quiz-feedback" id="quizFeedback-${index}"></div>
     </div>
   `;
 
+  container.appendChild(wrapper);
+
   setTimeout(() => {
-    const inp = document.getElementById('quizInput');
+    wrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    const inp = document.getElementById(`quizInput-${index}`);
     if (inp) inp.focus();
   }, 300);
 }
 
 /* ヒントを表示 */
-function showQuizHint(btn) {
-  document.getElementById('quizHint').classList.add('show');
+function showQuizHint(btn, index, num) {
+  document.getElementById(`quizHint${num}-${index}`).classList.add('show');
   btn.style.display = 'none';
+  if (num === 1) {
+    const btn2 = document.getElementById(`quizHintBtn2-${index}`);
+    if (btn2) btn2.style.display = '';
+  }
 }
 
 /* 答えを正規化（全角→半角・カタカナ→ひらがな・スペース除去） */
@@ -141,31 +179,32 @@ function normalizeAnswer(str) {
 }
 
 /* 答えを判定 */
-function submitQuizAnswer() {
-  if (quizState.answered) return;
-  const input    = document.getElementById('quizInput');
-  const feedback = document.getElementById('quizFeedback');
+function submitQuizAnswer(index) {
+  const input    = document.getElementById(`quizInput-${index}`);
+  const feedback = document.getElementById(`quizFeedback-${index}`);
   if (!input || !feedback) return;
+  if (input.disabled) return;
 
-  const user    = normalizeAnswer(input.value);
-  const correct = normalizeAnswer(QUIZ[quizState.current].answer);
+  const user = normalizeAnswer(input.value);
   if (!user) return;
 
-  // フィードバックをリセットしてから再描画（連続回答に対応）
+  const answers = [].concat(QUIZ[index].answer);
+  const isCorrect = answers.some(a => normalizeAnswer(a) === user);
+
   feedback.className = 'quiz-feedback';
   feedback.innerHTML = '';
   input.classList.remove('quiz-shake');
 
-  const isLast = quizState.current + 1 >= QUIZ.length;
+  const isLast = index + 1 >= QUIZ.length;
 
-  if (user === correct) {
-    quizState.answered = true;
+  if (isCorrect) {
+    input.disabled = true;
     feedback.innerHTML = `
       <div class="quiz-correct">
         <div class="quiz-correct-mark">⭕</div>
         <div class="quiz-correct-label">正解！</div>
-        <div class="quiz-correct-exp">${QUIZ[quizState.current].explanation}</div>
-        <button class="quiz-next-btn" onclick="advanceQuiz()">
+        <div class="quiz-correct-exp">${QUIZ[index].explanation}</div>
+        <button class="quiz-next-btn" onclick="advanceQuiz(${index})">
           ${isLast ? '隠しメッセージを見る 🎉' : '次の問題へ →'}
         </button>
       </div>`;
@@ -182,24 +221,24 @@ function submitQuizAnswer() {
   }
 }
 
-/* やり直し */
-function retryQuiz() {
-  const input    = document.getElementById('quizInput');
-  const feedback = document.getElementById('quizFeedback');
-  if (input)    { input.value = ''; input.focus(); }
-  if (feedback) { feedback.className = 'quiz-feedback'; feedback.innerHTML = ''; }
-  quizState.answered = false;
-}
-
 /* 次の問題へ */
-function advanceQuiz() {
-  quizState.current++;
+function advanceQuiz(index) {
+  quizState.current = index + 1;
+
+  // 正解済みカードから「次へ」ボタンを除去してすっきりさせる
+  const nextBtn = document.querySelector(`#quizCard-${index} .quiz-next-btn`);
+  if (nextBtn) nextBtn.remove();
+
+  // 解答済みのスタイルをあてる
+  const cardEl = document.querySelector(`#quizCard-${index} .quiz-card`);
+  if (cardEl) cardEl.classList.add('quiz-card--solved');
+
+  updateProgress();
+
   if (quizState.current >= QUIZ.length) {
     showQuizClear();
   } else {
-    quizState.answered = false;
-    renderQuizQuestion();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    appendQuizQuestion(quizState.current);
   }
 }
 
@@ -207,7 +246,9 @@ function advanceQuiz() {
 function showQuizClear() {
   const container = document.getElementById('quizContainer');
   if (!container) return;
-  container.innerHTML = `
+
+  const clearEl = document.createElement('div');
+  clearEl.innerHTML = `
     <div class="quiz-clear">
       <div class="quiz-clear-icon">🎉</div>
       <div class="quiz-clear-title">全問正解！</div>
@@ -218,5 +259,7 @@ function showQuizClear() {
       <button class="quiz-retry-all-btn" onclick="initQuiz()">もう一度挑戦する 🔄</button>
     </div>
   `;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  container.appendChild(clearEl);
+
+  setTimeout(() => clearEl.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
 }
